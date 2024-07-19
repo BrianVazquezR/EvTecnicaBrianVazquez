@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="36e34d9c-f5a2-41f0-a79e-f9369bdfda7e" activeEnvironment="Default" name="Kuroyami-soap" resourceRoot="" soapui-version="5.7.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="1ee222a1-237b-4adf-8ad7-27c004e84118" wsaVersion="NONE" name="DepartamentosPortSoap11" type="wsdl" bindingName="{http://kuroyami.com/departamentos}DepartamentosPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/departamentos.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/departamentos.wsdl"><con:part><con:url>http://localhost:8080/ws/departamentos.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://kuroyami.com/departamentos" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://kuroyami.com/departamentos" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://kuroyami.com/departamentos">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://kuroyami.com/departamentos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <!--Elementos requests y responses-->
+      <xs:element name="getDepartamentoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDepartamentoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="departamento" type="tns:departamento"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="departamento">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long"/>
+          <xs:element name="nombre" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getAllDepartamentosRequest">
+        <xs:complexType>
+          <xs:sequence></xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAllDepartamentosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="departamentos" type="tns:departamentosLista"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="departamentosLista">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="departamento" type="tns:departamento"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getDepartamentoRequest">
+    <wsdl:part element="tns:getDepartamentoRequest" name="getDepartamentoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllDepartamentosResponse">
+    <wsdl:part element="tns:getAllDepartamentosResponse" name="getAllDepartamentosResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllDepartamentosRequest">
+    <wsdl:part element="tns:getAllDepartamentosRequest" name="getAllDepartamentosRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDepartamentoResponse">
+    <wsdl:part element="tns:getDepartamentoResponse" name="getDepartamentoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DepartamentosPort">
+    <wsdl:operation name="getDepartamento">
+      <wsdl:input message="tns:getDepartamentoRequest" name="getDepartamentoRequest"></wsdl:input>
+      <wsdl:output message="tns:getDepartamentoResponse" name="getDepartamentoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDepartamentos">
+      <wsdl:input message="tns:getAllDepartamentosRequest" name="getAllDepartamentosRequest"></wsdl:input>
+      <wsdl:output message="tns:getAllDepartamentosResponse" name="getAllDepartamentosResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DepartamentosPortSoap11" type="tns:DepartamentosPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getDepartamento">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getDepartamentoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDepartamentoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDepartamentos">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getAllDepartamentosRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllDepartamentosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DepartamentosPortService">
+    <wsdl:port binding="tns:DepartamentosPortSoap11" name="DepartamentosPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="e6a9b61a-0cba-4954-93fe-24d638562c8a" isOneWay="false" action="" name="getAllDepartamentos" bindingOperationName="getAllDepartamentos" type="Request-Response" outputName="getAllDepartamentosResponse" inputName="getAllDepartamentosRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="62f0b411-9dee-4b6e-ae3e-826ce8951f31" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dep="http://kuroyami.com/departamentos">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <dep:getAllDepartamentosRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://kuroyami.com/departamentos/DepartamentosPort/getAllDepartamentosRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b5bb8088-ee2d-4bb5-a8a6-5ff79909a616" isOneWay="false" action="" name="getDepartamento" bindingOperationName="getDepartamento" type="Request-Response" outputName="getDepartamentoResponse" inputName="getDepartamentoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b3567aba-bfe3-4e39-acf7-aeef99566ab9" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dep="http://kuroyami.com/departamentos">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <dep:getDepartamentoRequest>\r
+         <dep:id>2</dep:id>\r
+      </dep:getDepartamentoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>user</con:username><con:password>password</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://kuroyami.com/departamentos/DepartamentosPort/getDepartamentoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
