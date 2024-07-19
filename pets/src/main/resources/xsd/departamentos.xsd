@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://kuroyami.com/departamentos"
+           xmlns:tns="http://kuroyami.com/departamentos"
+           elementFormDefault="qualified">
+
+    <!-- Elementos requests y responses -->
+    <xs:element name="getDepartamentoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getDepartamentoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="departamento" type="tns:departamento"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="departamento">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="nombre" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getAllDepartamentosRequest">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAllDepartamentosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="departamentos" type="tns:departamentosLista"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="departamentosLista">
+        <xs:sequence>
+            <xs:element name="departamento" type="tns:departamento" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    
+
+</xs:schema>
